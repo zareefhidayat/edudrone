@@ -1,0 +1,28 @@
+from easytello import tello
+angle = 120
+
+
+drone = tello.Tello()
+drone.get_battery()
+print(drone.get_battery())
+drone.get_wifi()
+print(drone.get_wifi())
+drone.get_temp()
+print(drone.get_temp())
+
+
+counter=1
+if counter == 0:
+    drone.takeoff()
+    for i in range(3):
+        drone.cw(angle)
+        drone.forward(35)
+        drone.flip("l")
+
+drone.streamoff()
+drone.streamon()
+
+
+
+drone.land()
+drone.streamoff()
